@@ -301,7 +301,7 @@ export default function LandingPage({ onNavigateToEducation, onCharacterClick: _
             className="select-none pointer-events-none"
             style={{
               position: 'absolute',
-              top: '26%',
+              top: '32%',
               left: '71%',
               zIndex: 12,
               maxWidth: 'clamp(200px, 18vw, 300px)',
@@ -311,10 +311,11 @@ export default function LandingPage({ onNavigateToEducation, onCharacterClick: _
               <div
                 key={i}
                 style={{
-                  fontFamily: "'Caveat', cursive",
+                  fontFamily: "'Comic Neue', cursive",
+                  fontStyle: 'italic',
                   fontSize: line.heading
-                    ? 'clamp(22px, 2vw, 36px)'
-                    : 'clamp(12px, 1vw, 17px)',
+                    ? 'clamp(24px, 2.2vw, 38px)'
+                    : 'clamp(14px, 1.2vw, 19px)',
                   fontWeight: line.heading ? 700 : 400,
                   color: line.heading ? '#D4623B' : '#1A1A1A',
                   lineHeight: line.heading ? 1.6 : 1.45,
