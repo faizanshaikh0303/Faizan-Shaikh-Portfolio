@@ -9,7 +9,7 @@ import proj6 from '../assets/project6.webp'
 import proj7 from '../assets/project7.webp'
 import proj8 from '../assets/project8.webp'
 
-interface Props { onBack: () => void; onNavigateToContact: () => void }
+interface Props { onBack: () => void; onNavigateToPrevious: () => void; onNavigateToContact: () => void }
 
 type Dir = 'left' | 'right' | 'top' | 'bottom'
 
@@ -462,7 +462,7 @@ function SpeechBubble({ def, onClose }: { def: PanelDef; onClose: () => void }) 
   )
 }
 
-export default function ProjectsPage({ onBack, onNavigateToContact }: Props) {
+export default function ProjectsPage({ onBack, onNavigateToPrevious, onNavigateToContact }: Props) {
   const [activePanel, setActivePanel] = useState<number | null>(null)
 
   return (
@@ -472,18 +472,33 @@ export default function ProjectsPage({ onBack, onNavigateToContact }: Props) {
     >
       {/* ── NAV ── */}
       <nav className="absolute top-0 left-0 right-0 z-30 flex items-start justify-between">
+        {/* ← EXPERIENCE (previous page) */}
         <button
-          onClick={onBack}
+          onClick={onNavigateToPrevious}
           className="flex items-start transition-opacity hover:opacity-80 active:opacity-60"
         >
           <span className="flex items-start" style={{ backgroundColor: '#D4623B', paddingTop: '7px', paddingBottom: '20px', paddingLeft: '12px', paddingRight: '0', gap: '8px' }}>
             <svg width="15" height="15" viewBox="0 0 18 18" fill="none" style={{ flexShrink: 0, marginTop: '1px' }}>
               <path d="M16 9H2M2 9L9 2M2 9L9 16" stroke="white" strokeWidth="2.5" strokeLinecap="square" />
             </svg>
-            <span style={{ color: '#1A1A1A', fontFamily: "'Anton', sans-serif", fontSize: '1.125rem', letterSpacing: '0.12em', lineHeight: 1 }}>H</span>
+            <span style={{ color: '#1A1A1A', fontFamily: "'Anton', sans-serif", fontSize: '1.125rem', letterSpacing: '0.12em', lineHeight: 1 }}>E</span>
           </span>
-          <span style={{ color: '#1A1A1A', fontFamily: "'Anton', sans-serif", fontSize: '1.125rem', letterSpacing: '0.12em', lineHeight: 1, paddingTop: '7px', paddingRight: '20px' }}>OME</span>
+          <span style={{ color: '#1A1A1A', fontFamily: "'Anton', sans-serif", fontSize: '1.125rem', letterSpacing: '0.12em', lineHeight: 1, paddingTop: '7px', paddingRight: '20px' }}>XPERIENCE</span>
         </button>
+
+        {/* Center home icon */}
+        <button
+          onClick={onBack}
+          className="transition-opacity hover:opacity-80 active:opacity-60"
+          style={{ backgroundColor: '#D4623B', paddingTop: '7px', paddingBottom: '10px', paddingLeft: '10px', paddingRight: '10px', lineHeight: 0 }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 9.5L12 3l9 6.5" />
+            <path d="M19 13v6a1 1 0 01-1 1h-4v-5H10v5H6a1 1 0 01-1-1v-6" />
+          </svg>
+        </button>
+
+        {/* CONTACT → */}
         <button
           onClick={onNavigateToContact}
           className="flex items-start transition-opacity hover:opacity-80 active:opacity-60"

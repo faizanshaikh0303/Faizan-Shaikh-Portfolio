@@ -60,6 +60,7 @@ export default function EducationPage({ onBack, onNavigateToExperience }: Props)
     >
       {/* ── TOP NAV ── */}
       <nav className="absolute top-0 left-0 right-0 z-30 flex items-start justify-between">
+        {/* ← HOME (back to landing) */}
         <button
           onClick={() => { setSelected(null); onBack() }}
           className="flex items-start transition-opacity hover:opacity-80 active:opacity-60"
@@ -71,6 +72,18 @@ export default function EducationPage({ onBack, onNavigateToExperience }: Props)
             <span style={{ color: '#1A1A1A', fontFamily: "'Anton', sans-serif", fontSize: '1.125rem', letterSpacing: '0.12em', lineHeight: 1 }}>H</span>
           </span>
           <span style={{ color: '#1A1A1A', fontFamily: "'Anton', sans-serif", fontSize: '1.125rem', letterSpacing: '0.12em', lineHeight: 1, paddingTop: '7px', paddingRight: '20px' }}>OME</span>
+        </button>
+
+        {/* Center home icon */}
+        <button
+          onClick={() => { setSelected(null); onBack() }}
+          className="transition-opacity hover:opacity-80 active:opacity-60"
+          style={{ backgroundColor: '#D4623B', paddingTop: '7px', paddingBottom: '10px', paddingLeft: '10px', paddingRight: '10px', lineHeight: 0 }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 9.5L12 3l9 6.5" />
+            <path d="M19 13v6a1 1 0 01-1 1h-4v-5H10v5H6a1 1 0 01-1-1v-6" />
+          </svg>
         </button>
 
         <button

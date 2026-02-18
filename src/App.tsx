@@ -80,6 +80,7 @@ function App() {
       return (
         <ExperiencePage
           onBack={() => navigateTo('landing', 'back')}
+          onNavigateToPrevious={() => navigateTo('education', 'back')}
           onNavigateToProjects={() => navigateTo('projects', 'forward')}
         />
       )
@@ -88,12 +89,18 @@ function App() {
       return (
         <ProjectsPage
           onBack={() => navigateTo('landing', 'back')}
+          onNavigateToPrevious={() => navigateTo('experience', 'back')}
           onNavigateToContact={() => navigateTo('contact', 'forward')}
         />
       )
     }
     if (page === 'contact') {
-      return <ContactPage onBack={() => navigateTo('landing', 'back')} />
+      return (
+        <ContactPage
+          onBack={() => navigateTo('landing', 'back')}
+          onNavigateToPrevious={() => navigateTo('projects', 'back')}
+        />
+      )
     }
     return (
       <LandingPage

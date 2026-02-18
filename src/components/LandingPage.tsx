@@ -83,9 +83,12 @@ export default function LandingPage({ onNavigateToEducation, onCharacterClick: _
         </button>
 
         {/* RESUME — "RESUM" outside, "E + arrow" in orange box, zero gap, stuck to bottom */}
-        <button
+        <a
+          href="https://drive.google.com/file/d/1vYF89xaNIOzs325zhXrEQysjhB1qriVY/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-end transition-opacity hover:opacity-80 active:opacity-60"
-          style={{ fontFamily: "'Anton', sans-serif" }}
+          style={{ fontFamily: "'Anton', sans-serif", textDecoration: 'none' }}
         >
           {/* RESUM outside — pr-0 so it butts up against the box (letter-spacing on M provides the natural inter-letter gap) */}
           <span
@@ -139,7 +142,7 @@ export default function LandingPage({ onNavigateToEducation, onCharacterClick: _
               />
             </svg>
           </span>
-        </button>
+        </a>
       </nav>
 
       {/* ── FAIZAN — slides down from off-screen ── */}

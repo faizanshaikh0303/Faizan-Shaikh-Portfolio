@@ -79,9 +79,9 @@ const EXPERIENCES: Experience[] = [
   },
 ]
 
-interface Props { onBack: () => void; onNavigateToProjects: () => void }
+interface Props { onBack: () => void; onNavigateToPrevious: () => void; onNavigateToProjects: () => void }
 
-export default function ExperiencePage({ onBack, onNavigateToProjects }: Props) {
+export default function ExperiencePage({ onBack, onNavigateToPrevious, onNavigateToProjects }: Props) {
   const [selected, setSelected] = useState<Experience | null>(null)
 
   const handleBack = () => { setSelected(null); onBack() }
@@ -95,19 +95,33 @@ export default function ExperiencePage({ onBack, onNavigateToProjects }: Props) 
     >
       {/* ── TOP NAV ── */}
       <nav className="absolute top-0 left-0 right-0 z-30 flex items-start justify-between">
+        {/* ← EDUCATION (previous page) */}
         <button
-          onClick={handleBack}
+          onClick={() => { setSelected(null); onNavigateToPrevious() }}
           className="flex items-start transition-opacity hover:opacity-80 active:opacity-60"
         >
           <span className="flex items-start" style={{ backgroundColor: '#D4623B', paddingTop: '7px', paddingBottom: '20px', paddingLeft: '12px', paddingRight: '0', gap: '8px' }}>
             <svg width="15" height="15" viewBox="0 0 18 18" fill="none" style={{ flexShrink: 0, marginTop: '1px' }}>
               <path d="M16 9H2M2 9L9 2M2 9L9 16" stroke="white" strokeWidth="2.5" strokeLinecap="square" />
             </svg>
-            <span style={{ color: '#1A1A1A', fontFamily: "'Anton', sans-serif", fontSize: '1.125rem', letterSpacing: '0.12em', lineHeight: 1 }}>H</span>
+            <span style={{ color: '#1A1A1A', fontFamily: "'Anton', sans-serif", fontSize: '1.125rem', letterSpacing: '0.12em', lineHeight: 1 }}>E</span>
           </span>
-          <span style={{ color: '#1A1A1A', fontFamily: "'Anton', sans-serif", fontSize: '1.125rem', letterSpacing: '0.12em', lineHeight: 1, paddingTop: '7px', paddingRight: '20px' }}>OME</span>
+          <span style={{ color: '#1A1A1A', fontFamily: "'Anton', sans-serif", fontSize: '1.125rem', letterSpacing: '0.12em', lineHeight: 1, paddingTop: '7px', paddingRight: '20px' }}>DUCATION</span>
         </button>
-        {/* PROJECTS → matching EducationPage's EXPERIENCE button style */}
+
+        {/* Center home icon */}
+        <button
+          onClick={handleBack}
+          className="transition-opacity hover:opacity-80 active:opacity-60"
+          style={{ backgroundColor: '#D4623B', paddingTop: '7px', paddingBottom: '10px', paddingLeft: '10px', paddingRight: '10px', lineHeight: 0 }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 9.5L12 3l9 6.5" />
+            <path d="M19 13v6a1 1 0 01-1 1h-4v-5H10v5H6a1 1 0 01-1-1v-6" />
+          </svg>
+        </button>
+
+        {/* PROJECTS → */}
         <button
           onClick={onNavigateToProjects}
           className="flex items-start transition-opacity hover:opacity-80 active:opacity-60"
