@@ -75,6 +75,54 @@ html, body {
   to   { transform: translateY(0)      rotate(0deg);    opacity: 1; }
 }
 
+/* LANDING: FAIZAN slides down from off-screen */
+@keyframes slide-down-in {
+  from { transform: translateY(-120%); }
+  to   { transform: translateY(0); }
+}
+
+/* LANDING: SHAIKH slides up from off-screen */
+@keyframes slide-up-in {
+  from { transform: translateY(120%); }
+  to   { transform: translateY(0); }
+}
+
+/* LANDING: pop in from scale 0 */
+@keyframes pop-in {
+  0%   { transform: translateX(-50%) scale(0); opacity: 0; }
+  60%  { transform: translateX(-50%) scale(1.08); opacity: 1; }
+  80%  { transform: translateX(-50%) scale(0.96); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+/* LANDING: "Click me" pop in (no translateX needed) */
+@keyframes pop-in-callout {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.12); opacity: 1; }
+  80%  { transform: scale(0.94); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* LANDING: "Click me" callout bob */
+@keyframes callout-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* LANDING: portfolio button drops from top with g-force */
+@keyframes gforce-enter {
+  0%   { transform: translateY(-60vh); }
+  60%  { transform: translateY(8px); }
+  75%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+/* LANDING: handwriting reveal — text writes left-to-right */
+@keyframes handwrite {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
 /* EDUCATION: chalk text drawn left-to-right on board */
 @keyframes chalk-write {
   from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
@@ -84,4 +132,73 @@ html, body {
 .chalk-write {
   animation: chalk-write 0.45s cubic-bezier(0.25, 0, 0.4, 1) forwards;
   opacity: 0;
+}
+
+/* PAGE TRANSITIONS: right page flips over to the left (forward) */
+@keyframes page-flip-forward {
+  0%   { transform: rotateY(0deg); }
+  100% { transform: rotateY(-180deg); }
+}
+
+/* PAGE TRANSITIONS: left page flips back to the right (home/back) */
+@keyframes page-flip-back {
+  0%   { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+
+/* Shadow on the revealed page underneath during flip */
+@keyframes flip-shadow {
+  0%   { opacity: 0; }
+  35%  { opacity: 1; }
+  65%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ENTRANCE: manga panel slams in from left with impact */
+@keyframes slam-from-left {
+  0%   { transform: translateX(-110%) rotate(-2deg); opacity: 0; }
+  60%  { transform: translateX(3%)    rotate(0.5deg); opacity: 1; }
+  80%  { transform: translateX(-1%)   rotate(-0.2deg); opacity: 1; }
+  100% { transform: translateX(0)     rotate(0deg);    opacity: 1; }
+}
+
+/* ENTRANCE: manga panel slams in from right with impact */
+@keyframes slam-from-right {
+  0%   { transform: translateX(110%) rotate(2deg); opacity: 0; }
+  60%  { transform: translateX(-3%)  rotate(-0.5deg); opacity: 1; }
+  80%  { transform: translateX(1%)   rotate(0.2deg); opacity: 1; }
+  100% { transform: translateX(0)    rotate(0deg);   opacity: 1; }
+}
+
+/* ENTRANCE: element zooms in with manga impact (scale overshoot) */
+@keyframes manga-impact {
+  0%   { transform: scale(0) rotate(-3deg);   opacity: 0; }
+  50%  { transform: scale(1.15) rotate(1deg);  opacity: 1; }
+  70%  { transform: scale(0.95) rotate(-0.5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg);     opacity: 1; }
+}
+
+/* ENTRANCE: drops in from top with bounce (like a manga SFX) */
+@keyframes drop-slam {
+  0%   { transform: translateY(-100%) scaleY(1.1);  opacity: 0; }
+  55%  { transform: translateY(4%)    scaleY(0.92); opacity: 1; }
+  75%  { transform: translateY(-2%)   scaleY(1.03); opacity: 1; }
+  100% { transform: translateY(0)     scaleY(1);    opacity: 1; }
+}
+
+/* ENTRANCE: rises from bottom with bounce */
+@keyframes rise-slam {
+  0%   { transform: translateY(100%) scaleY(1.1);  opacity: 0; }
+  55%  { transform: translateY(-4%)  scaleY(0.92); opacity: 1; }
+  75%  { transform: translateY(2%)   scaleY(1.03); opacity: 1; }
+  100% { transform: translateY(0)    scaleY(1);    opacity: 1; }
+}
+
+/* ENTRANCE: thought bubble pops in with wobble */
+@keyframes bubble-pop {
+  0%   { transform: scale(0);    opacity: 0; }
+  40%  { transform: scale(1.12); opacity: 1; }
+  60%  { transform: scale(0.92); opacity: 1; }
+  80%  { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1);    opacity: 1; }
 }

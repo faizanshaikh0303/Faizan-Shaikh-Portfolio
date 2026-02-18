@@ -180,7 +180,7 @@ export default function ExperiencePage({ onBack, onNavigateToProjects }: Props) 
           </div>
 
           {/* Comic grid — z-index 1 sits above background */}
-          <div style={{ position: 'relative', zIndex: 1, width: '100%', height: '100%', display: 'flex' }}>
+          <div style={{ position: 'relative', zIndex: 1, width: '100%', height: '100%', display: 'flex', animation: 'manga-impact 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both' }}>
             <div style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
@@ -195,7 +195,7 @@ export default function ExperiencePage({ onBack, onNavigateToProjects }: Props) 
               {/* Panel 1 — landscape */}
               <button
                 onClick={() => handlePanelClick(EXPERIENCES[0])}
-                style={{ gridColumn: '1 / 3', padding: 0, border: 'none', position: 'relative', overflow: 'hidden', background: 'repeating-conic-gradient(from 0deg at 50% 50%, #141414 0deg 0.8deg, #383838 0.8deg 5deg)' }}
+                style={{ gridColumn: '1 / 3', padding: 0, border: 'none', position: 'relative', overflow: 'hidden', background: 'repeating-conic-gradient(from 0deg at 50% 50%, #141414 0deg 0.8deg, #383838 0.8deg 5deg)', animation: 'drop-slam 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both' }}
                 className="cursor-pointer"
               >
                 <img src={selected?.id === 1 ? exp1_ : exp1} alt="Delta Airlines overview" className="w-full h-full"
@@ -211,7 +211,7 @@ export default function ExperiencePage({ onBack, onNavigateToProjects }: Props) 
               {/* Panel 2 — portrait left */}
               <button
                 onClick={() => handlePanelClick(EXPERIENCES[1])}
-                style={{ padding: 0, border: 'none', position: 'relative', overflow: 'hidden', background: 'repeating-conic-gradient(from 0deg at 50% 50%, #141414 0deg 0.8deg, #383838 0.8deg 5deg)' }}
+                style={{ padding: 0, border: 'none', position: 'relative', overflow: 'hidden', background: 'repeating-conic-gradient(from 0deg at 50% 50%, #141414 0deg 0.8deg, #383838 0.8deg 5deg)', animation: 'slam-from-left 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both' }}
                 className="cursor-pointer"
               >
                 <img src={selected?.id === 2 ? exp2_ : exp2} alt="Loyalty Team" className="w-full h-full"
@@ -227,7 +227,7 @@ export default function ExperiencePage({ onBack, onNavigateToProjects }: Props) 
               {/* Panel 3 — portrait right */}
               <button
                 onClick={() => handlePanelClick(EXPERIENCES[2])}
-                style={{ padding: 0, border: 'none', position: 'relative', overflow: 'hidden', background: 'repeating-conic-gradient(from 0deg at 50% 50%, #141414 0deg 0.8deg, #383838 0.8deg 5deg)' }}
+                style={{ padding: 0, border: 'none', position: 'relative', overflow: 'hidden', background: 'repeating-conic-gradient(from 0deg at 50% 50%, #141414 0deg 0.8deg, #383838 0.8deg 5deg)', animation: 'slam-from-right 0.55s cubic-bezier(0.22, 1, 0.36, 1) 1.0s both' }}
                 className="cursor-pointer"
               >
                 <img src={selected?.id === 3 ? exp3_ : exp3} alt="Revenue Team" className="w-full h-full"
@@ -243,7 +243,7 @@ export default function ExperiencePage({ onBack, onNavigateToProjects }: Props) 
               {/* Panel 4 — landscape */}
               <button
                 onClick={() => handlePanelClick(EXPERIENCES[3])}
-                style={{ gridColumn: '1 / 3', padding: 0, border: 'none', position: 'relative', overflow: 'hidden', background: 'repeating-conic-gradient(from 0deg at 50% 50%, #141414 0deg 0.8deg, #383838 0.8deg 5deg)' }}
+                style={{ gridColumn: '1 / 3', padding: 0, border: 'none', position: 'relative', overflow: 'hidden', background: 'repeating-conic-gradient(from 0deg at 50% 50%, #141414 0deg 0.8deg, #383838 0.8deg 5deg)', animation: 'rise-slam 0.55s cubic-bezier(0.22, 1, 0.36, 1) 1.1s both' }}
                 className="cursor-pointer"
               >
                 <img src={selected?.id === 4 ? exp4_ : exp4} alt="Infrabeat Technologies" className="w-full h-full"
@@ -299,6 +299,7 @@ export default function ExperiencePage({ onBack, onNavigateToProjects }: Props) 
             transform: 'rotate(2deg)',
             boxShadow: '2px 2px 0 #D4623B',
             pointerEvents: 'none',
+            animation: 'manga-impact 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.2s both',
           }}>
             ✦ ARC 02 ✦
           </div>
@@ -342,7 +343,7 @@ export default function ExperiencePage({ onBack, onNavigateToProjects }: Props) 
           )}
 
           {/* The thought bubble — z-index on top of decorations */}
-          <div style={{ position: 'relative', zIndex: 3, width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <div style={{ position: 'relative', zIndex: 3, width: '100%', display: 'flex', justifyContent: 'center', animation: 'bubble-pop 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.95s both' }}>
             {selected ? <ThoughtBubble experience={selected} /> : <EmptyBubble />}
           </div>
         </div>

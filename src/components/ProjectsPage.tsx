@@ -52,6 +52,7 @@ const PANELS: PanelDef[] = [
     img: proj1, zIndex: 2, dir: 'top', delay: 0.7,
     pos: { left: '1%', top: '4%', width: '39%', height: '38%' },
     clip: 'polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%)',
+    objPos: 'center 30%',
   },
 
   // ── 2 ─ SHEF COMPANION — top-right (z=2 so it overlays RAG extension) ──
@@ -73,6 +74,7 @@ const PANELS: PanelDef[] = [
     img: proj3, zIndex: 1, dir: 'right', delay: 1.7,
     pos: { left: '22%', top: '34%', width: '57.5%', height: '28%' },
     clip: 'polygon(32% 2%, 100% 32%, 100% 100%, 0% 100%, 1% 19%)',
+    objPos: 'center 15%',
   },
 
   // ── 5 ─ INQUIZITIVE — bottom-left small (1% gap below RAG) ────────────
@@ -101,6 +103,7 @@ const PANELS: PanelDef[] = [
     img: proj4, zIndex: 1, dir: 'right', delay: 1.8,
     pos: { left: '59.8%', top: '64%', width: '19.6%', height: '36.5%' },
     clip: 'polygon(0% 4%, 100% 0%, 100% 100%, 0% 97%)',
+    objPos: '25% center',
   },
 ]
 
@@ -109,6 +112,16 @@ const ANIM: Record<Dir, string> = {
   right:  'panel-from-right',
   top:    'panel-from-top',
   bottom: 'panel-from-bottom',
+}
+
+/** Convert CSS clip-path polygon to SVG points string */
+function clipToSvgPoints(clip: string): string {
+  return clip
+    .replace(/polygon\(/, '')
+    .replace(/\)$/, '')
+    .split(',')
+    .map(pair => pair.trim().replace(/%/g, '').split(/\s+/).join(','))
+    .join(' ')
 }
 
 function ProjectPanel({ def }: { def: PanelDef }) {
@@ -139,16 +152,25 @@ function ProjectPanel({ def }: { def: PanelDef }) {
         onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
       />
 
-      {/* inset border on hover */}
-      <div
+      {/* border that follows the tilted clip-path */}
+      <svg
         className="opacity-0 group-hover:opacity-100"
         style={{
-          position: 'absolute', inset: 0, zIndex: 4,
-          boxShadow: 'inset 0 0 0 2px #D4623B',
-          pointerEvents: 'none',
+          position: 'absolute', inset: 0, width: '100%', height: '100%',
+          zIndex: 4, pointerEvents: 'none',
           transition: 'opacity 0.2s',
         }}
-      />
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <polygon
+          points={clipToSvgPoints(def.clip)}
+          fill="none"
+          stroke="#D4623B"
+          strokeWidth="2"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
     </div>
   )
 }

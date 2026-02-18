@@ -89,10 +89,14 @@ export default function EducationPage({ onBack, onNavigateToExperience }: Props)
 
       {/* ── TWO MANGA PANELS ── */}
       <div style={{ display: 'flex', flexDirection: 'column', height: '100%', paddingTop: '44px', gap: '4px' }}>
-        {/* Panel 1 — KSU — image LEFT, deco RIGHT — nudged left */}
-        <MangaPanel entry={EDUCATION[0]} active={selected === 1} onToggle={() => toggle(1)} flip={false} />
-        {/* Panel 2 — Stony Brook — image RIGHT, deco LEFT — nudged right */}
-        <MangaPanel entry={EDUCATION[1]} active={selected === 2} onToggle={() => toggle(2)} flip={true} />
+        {/* Panel 1 — KSU — slams in from left */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', animation: 'slam-from-left 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both' }}>
+          <MangaPanel entry={EDUCATION[0]} active={selected === 1} onToggle={() => toggle(1)} flip={false} />
+        </div>
+        {/* Panel 2 — Stony Brook — slams in from right */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', animation: 'slam-from-right 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.85s both' }}>
+          <MangaPanel entry={EDUCATION[1]} active={selected === 2} onToggle={() => toggle(2)} flip={true} />
+        </div>
       </div>
     </div>
   )
@@ -147,6 +151,7 @@ function MangaPanel({ entry, active, onToggle, flip }: {
         boxShadow: flip ? '-6px 6px 0 #D4623B' : '6px 6px 0 #D4623B',
         overflow: 'hidden',
         zIndex: 2,
+        animation: `${flip ? 'slam-from-right' : 'slam-from-left'} 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both`,
       }}>
         <img
           src={entry.image}
@@ -204,6 +209,7 @@ function MangaPanel({ entry, active, onToggle, flip }: {
           marginBottom: '8px',
           alignSelf: 'flex-start',
           transform: `rotate(${flip ? '1.5deg' : '-1.5deg'})`,
+          animation: 'manga-impact 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.0s both',
         }}>
           ✦ {entry.degree.toUpperCase()} ✦
         </div>
@@ -218,6 +224,7 @@ function MangaPanel({ entry, active, onToggle, flip }: {
             fontSize: 'clamp(12px, 1.3vw, 18px)',
             letterSpacing: '0.12em',
             lineHeight: 1.15,
+            animation: `${flip ? 'slam-from-left' : 'slam-from-right'} 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.1s both`,
             backgroundColor: active
               ? (hovered ? '#BF5230' : '#D4623B')
               : (hovered ? '#3A3A3A' : '#1A1A1A'),
@@ -264,6 +271,7 @@ function MangaPanel({ entry, active, onToggle, flip }: {
           boxShadow: '2px 2px 0 #1A1A1A',
           gap: '4px',
           alignItems: 'baseline',
+          animation: 'manga-impact 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.2s both',
         }}>
           <span style={{ fontFamily: "'Anton', sans-serif", fontSize: 'clamp(7px, 0.65vw, 10px)', color: '#D4623B', letterSpacing: '0.15em' }}>GPA</span>
           <span style={{ fontFamily: "'Anton', sans-serif", fontSize: 'clamp(12px, 1.4vw, 20px)', color: '#1A1A1A', letterSpacing: '0.05em' }}>{entry.gpa}</span>
@@ -290,6 +298,7 @@ function MangaPanel({ entry, active, onToggle, flip }: {
           [decoSide]: flip ? '34%' : '34%',
           top: '8%',
           zIndex: 4,
+          animation: 'manga-impact 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.15s both',
         }}
         active={active}
       />
