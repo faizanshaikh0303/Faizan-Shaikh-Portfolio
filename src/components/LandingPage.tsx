@@ -13,7 +13,7 @@ interface Props {
     1.3 → 1.7   "CLICK ME!" pops in
     1.8 → 2.4   PORTFOLIO drops in       */
 
-export default function LandingPage({ onNavigateToEducation, onCharacterClick }: Props) {
+export default function LandingPage({ onNavigateToEducation, onCharacterClick: _onCharacterClick }: Props) {
   const [dropping, setDropping] = useState(false)   // mid-drop animation
   const [dropped, setDropped] = useState(false)     // resting at bottom, bouncing
   const [flyingRight, setFlyingRight] = useState(false)
