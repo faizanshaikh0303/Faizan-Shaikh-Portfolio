@@ -1,0 +1,5 @@
+screen_screenshots/*
+screen_screenshots
+.claude
+node_modules
+node_modules/*
