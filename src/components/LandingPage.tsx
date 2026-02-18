@@ -187,9 +187,9 @@ export default function LandingPage({ onNavigateToEducation, onCharacterClick: _
       <div
         className="absolute select-none"
         style={{
-          top: '-40vh',
-          height: '135vh',
-          left: '59%',
+          top: '4.7vh',
+          height: '90.1vh',
+          left: '56.2%',
           transform: 'translateX(-50%)',
           zIndex: 10,
           cursor: 'pointer',
@@ -231,7 +231,8 @@ export default function LandingPage({ onNavigateToEducation, onCharacterClick: _
             position: 'relative',
             transition: 'transform 0.3s ease, filter 0.3s ease',
             transform: charHover ? 'scale(1.04)' : 'scale(1)',
-            filter: charHover ? 'drop-shadow(0 0 18px rgba(212,98,59,0.45))' : 'none',
+            boxShadow: '0px 0px 55px 15px #fff',
+            // filter: `drop-shadow(0 0 0 white) drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white) drop-shadow(1.5px 1.5px 0 white) drop-shadow(-1.5px 1.5px 0 white) drop-shadow(1.5px -1.5px 0 white) drop-shadow(-1.5px -1.5px 0 white)${charHover ? ' drop-shadow(0 0 18px rgba(212,98,59,0.45))' : ''}`,
           }}
         />
       </div>
@@ -282,50 +283,58 @@ export default function LandingPage({ onNavigateToEducation, onCharacterClick: _
 
       {/* ── HANDWRITTEN "ABOUT ME" ── */}
       {showAbout && (() => {
-        const lines = [
-          { text: 'About Me', heading: true },
-          { text: 'Full-stack engineer with an ownership' },
-          { text: 'mentality who loves transforming complex' },
-          { text: 'business problems into scalable technical' },
-          { text: 'solutions. Deep fascination with AI' },
-          { text: 'integration and building systems that' },
-          { text: 'handle massive scale. Energized by' },
-          { text: 'fast-paced environments where I can ship' },
-          { text: 'features that directly impact millions' },
-          { text: 'of users daily.' },
-        ]
-        const lineDur = 0.6   // seconds per line
-        const lineGap = 0.15  // overlap between lines
+        const heading = 'About Me'
+        const body = 'Full-stack engineer with an ownership mentality who loves transforming complex business problems into scalable technical solutions. Deep fascination with AI integration and building systems that handle massive scale. Energized by fast-paced environments where I can ship features that directly impact millions of users daily.'
+        const charDelay = 0.025 // seconds per character
+        const headingDuration = heading.length * charDelay
+        const bodyStart = headingDuration + 0.15
         return (
           <div
             className="select-none pointer-events-none"
             style={{
               position: 'absolute',
               top: '32%',
-              left: '71%',
+              left: '74%',
+              maxWidth: 'clamp(180px, 16vw, 280px)',
               zIndex: 12,
-              maxWidth: 'clamp(200px, 18vw, 300px)',
             }}
           >
-            {lines.map((line, i) => (
-              <div
-                key={i}
-                style={{
-                  fontFamily: "'Comic Neue', cursive",
-                  fontStyle: 'italic',
-                  fontSize: line.heading
-                    ? 'clamp(24px, 2.2vw, 38px)'
-                    : 'clamp(14px, 1.2vw, 19px)',
-                  fontWeight: line.heading ? 700 : 400,
-                  color: line.heading ? '#D4623B' : '#1A1A1A',
-                  lineHeight: line.heading ? 1.6 : 1.45,
-                  whiteSpace: 'nowrap',
-                  animation: `handwrite ${lineDur}s cubic-bezier(0.25, 0, 0.4, 1) ${i * (lineDur - lineGap)}s both`,
-                }}
-              >
-                {line.text}
-              </div>
-            ))}
+            <div style={{ whiteSpace: 'nowrap', lineHeight: 1.6 }}>
+              {heading.split('').map((ch, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontFamily: "'Comic Neue', cursive",
+                    fontStyle: 'italic',
+                    fontSize: 'clamp(24px, 2.2vw, 38px)',
+                    fontWeight: 700,
+                    color: '#D4623B',
+                    opacity: 0,
+                    animation: `char-appear 0.08s ease-out ${i * charDelay}s forwards`,
+                  }}
+                >
+                  {ch === ' ' ? '\u00A0' : ch}
+                </span>
+              ))}
+            </div>
+            <div style={{ lineHeight: 1.45 }}>
+              {body.split('').map((ch, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontFamily: "'Comic Neue', cursive",
+                    fontStyle: 'italic',
+                    fontSize: 'clamp(14px, 1.2vw, 19px)',
+                    fontWeight: 400,
+                    color: '#1A1A1A',
+                    opacity: 0,
+                    animation: `char-appear 0.04s ease-out ${bodyStart + i * charDelay}s forwards`,
+                  }}
+                >
+                  {ch}
+                </span>
+              ))}
+            </div>
           </div>
         )
       })()}

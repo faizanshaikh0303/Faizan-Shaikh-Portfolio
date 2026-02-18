@@ -123,6 +123,12 @@ html, body {
   to   { clip-path: inset(0 0% 0 0); }
 }
 
+/* LANDING: letter-by-letter typewriter */
+@keyframes char-appear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* EDUCATION: chalk text drawn left-to-right on board */
 @keyframes chalk-write {
   from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
