@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import proj0 from '../assets/project0.png'
-import proj1 from '../assets/project1.png'
-import proj2 from '../assets/project2.png'
-import proj3 from '../assets/project3.png'
-import proj4 from '../assets/project4.png'
-import proj5 from '../assets/project5.png'
-import proj6 from '../assets/project6.png'
-import proj7 from '../assets/project7.png'
-import proj8 from '../assets/project8.png'
+import proj0 from '../assets/project0.webp'
+import proj1 from '../assets/project1.webp'
+import proj2 from '../assets/project2.webp'
+import proj3 from '../assets/project3.webp'
+import proj4 from '../assets/project4.webp'
+import proj5 from '../assets/project5.webp'
+import proj6 from '../assets/project6.webp'
+import proj7 from '../assets/project7.webp'
+import proj8 from '../assets/project8.webp'
 
 interface Props { onBack: () => void; onNavigateToContact: () => void }
 

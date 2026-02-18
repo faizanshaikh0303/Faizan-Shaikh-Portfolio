@@ -1,9 +1,37 @@
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback, useEffect } from 'react'
 import LandingPage from './components/LandingPage'
 import EducationPage from './components/EducationPage'
 import ExperiencePage from './components/ExperiencePage'
 import ProjectsPage from './components/ProjectsPage'
 import ContactPage from './components/ContactPage'
+
+// Import all assets so Vite resolves their hashed URLs
+import character from './assets/character.webp'
+import edu1 from './assets/edu1.webp'
+import edu2 from './assets/edu2.webp'
+import exp1 from './assets/experience1.webp'
+import exp2 from './assets/experience2.webp'
+import exp3 from './assets/experience3.webp'
+import exp4 from './assets/experience4.webp'
+import exp1_ from './assets/experience1_.webp'
+import exp2_ from './assets/experience2_.webp'
+import exp3_ from './assets/experience3_.webp'
+import exp4_ from './assets/experience4_.webp'
+import proj0 from './assets/project0.webp'
+import proj1 from './assets/project1.webp'
+import proj2 from './assets/project2.webp'
+import proj3 from './assets/project3.webp'
+import proj4 from './assets/project4.webp'
+import proj5 from './assets/project5.webp'
+import proj6 from './assets/project6.webp'
+import proj7 from './assets/project7.webp'
+import proj8 from './assets/project8.webp'
+
+const ALL_IMAGES = [
+  character, edu1, edu2,
+  exp1, exp2, exp3, exp4, exp1_, exp2_, exp3_, exp4_,
+  proj0, proj1, proj2, proj3, proj4, proj5, proj6, proj7, proj8,
+]
 
 type Page = 'landing' | 'education' | 'experience' | 'projects' | 'contact'
 type Direction = 'forward' | 'back'
@@ -14,6 +42,14 @@ function App() {
   const [page, setPage] = useState<Page>('landing')
   const [transition, setTransition] = useState<{ direction: Direction; target: Page } | null>(null)
   const timerRef = useRef<number | null>(null)
+
+  // Preload all images on mount so they're cached before navigation
+  useEffect(() => {
+    ALL_IMAGES.forEach(src => {
+      const img = new Image()
+      img.src = src
+    })
+  }, [])
 
   const navigateTo = useCallback((target: Page, direction: Direction) => {
     if (transition) return

@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import exp1 from '../assets/experience1.png'
-import exp2 from '../assets/experience2.png'
-import exp3 from '../assets/experience3.png'
-import exp4 from '../assets/experience4.png'
-import exp1_ from '../assets/experience1_.png'
-import exp2_ from '../assets/experience2_.png'
-import exp3_ from '../assets/experience3_.png'
-import exp4_ from '../assets/experience4_.png'
+import exp1 from '../assets/experience1.webp'
+import exp2 from '../assets/experience2.webp'
+import exp3 from '../assets/experience3.webp'
+import exp4 from '../assets/experience4.webp'
+import exp1_ from '../assets/experience1_.webp'
+import exp2_ from '../assets/experience2_.webp'
+import exp3_ from '../assets/experience3_.webp'
+import exp4_ from '../assets/experience4_.webp'
 
 interface Experience {
   id: number

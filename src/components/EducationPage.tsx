@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import edu1 from '../assets/edu1.png'
-import edu2 from '../assets/edu2.png'
+import edu1 from '../assets/edu1.webp'
+import edu2 from '../assets/edu2.webp'
 
 const EDUCATION = [
   {

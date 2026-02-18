@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import characterImg from '../assets/character.png'
+import characterImg from '../assets/character.webp'
 
 interface Props {
   onNavigateToEducation: () => void
