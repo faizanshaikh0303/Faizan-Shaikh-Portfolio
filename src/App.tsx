@@ -3,8 +3,9 @@ import LandingPage from './components/LandingPage'
 import EducationPage from './components/EducationPage'
 import ExperiencePage from './components/ExperiencePage'
 import ProjectsPage from './components/ProjectsPage'
+import ContactPage from './components/ContactPage'
 
-type Page = 'landing' | 'education' | 'experience' | 'projects'
+type Page = 'landing' | 'education' | 'experience' | 'projects' | 'contact'
 type Direction = 'forward' | 'back'
 
 const FLIP_DURATION = 800
@@ -48,7 +49,15 @@ function App() {
       )
     }
     if (page === 'projects') {
-      return <ProjectsPage onBack={() => navigateTo('landing', 'back')} />
+      return (
+        <ProjectsPage
+          onBack={() => navigateTo('landing', 'back')}
+          onNavigateToContact={() => navigateTo('contact', 'forward')}
+        />
+      )
+    }
+    if (page === 'contact') {
+      return <ContactPage onBack={() => navigateTo('landing', 'back')} />
     }
     return (
       <LandingPage

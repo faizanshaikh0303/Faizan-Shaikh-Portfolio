@@ -46,6 +46,7 @@ const EXPERIENCES: Experience[] = [
       'Collaborated with product management, design, and analytics teams to deliver features across multiple phases; participated in ideation, refined requirements, and articulated technical constraints for product decisions.',
       'Built and maintained monitoring metrics using CloudWatch and Dynatrace; participated in on-call rotation supporting production availability.',
     ],
+    tech: 'React · TypeScript · GraphQL · REST · Java · Spring Boot · CloudWatch · Dynatrace',
   },
   {
     id: 3,
@@ -445,7 +446,7 @@ function BubbleWithTrail({ children }: { children: React.ReactNode }) {
 function EmptyBubble() {
   return (
     <BubbleWithTrail>
-      <p style={{ fontFamily: "'Anton', sans-serif", fontSize: 'clamp(14px, 1.4vw, 22px)', color: '#1A1A1A', letterSpacing: '0.1em', textAlign: 'center', lineHeight: 1.5 }}>
+      <p style={{ fontFamily: "'Comic Neue', cursive", fontStyle: 'italic', fontWeight: 700, fontSize: 'clamp(14px, 1.4vw, 22px)', color: '#1A1A1A', letterSpacing: '0.1em', textAlign: 'center', lineHeight: 1.5 }}>
         CLICK A PANEL
         <br />
         <span style={{ color: '#D4623B' }}>TO READ THE STORY</span>
@@ -457,25 +458,25 @@ function EmptyBubble() {
 function ThoughtBubble({ experience }: { experience: Experience }) {
   return (
     <BubbleWithTrail>
-      <p style={{ fontFamily: "'Anton', sans-serif", fontSize: 'clamp(13px, 1.4vw, 20px)', color: '#D4623B', letterSpacing: '0.12em', lineHeight: 1.1 }}>
+      <p style={{ fontFamily: "'Comic Neue', cursive", fontStyle: 'italic', fontWeight: 700, fontSize: 'clamp(13px, 1.4vw, 20px)', color: '#D4623B', letterSpacing: '0.12em', lineHeight: 1.1 }}>
         {experience.company.toUpperCase()}
       </p>
-      <p style={{ fontFamily: "'Anton', sans-serif", fontSize: 'clamp(9px, 0.82vw, 12px)', color: '#777', letterSpacing: '0.1em', lineHeight: 1.2, marginTop: '2px' }}>
+      <p style={{ fontFamily: "'Comic Neue', cursive", fontStyle: 'italic', fontSize: 'clamp(9px, 0.82vw, 12px)', color: '#777', letterSpacing: '0.1em', lineHeight: 1.2, marginTop: '2px' }}>
         {experience.period}
       </p>
-      <p style={{ fontFamily: "'Anton', sans-serif", fontSize: 'clamp(10px, 0.95vw, 14px)', color: '#1A1A1A', letterSpacing: '0.08em', lineHeight: 1.3, marginTop: '4px', borderBottom: '2px solid #D4623B', paddingBottom: '8px', marginBottom: '10px' }}>
+      <p style={{ fontFamily: "'Comic Neue', cursive", fontStyle: 'italic', fontWeight: 700, fontSize: 'clamp(10px, 0.95vw, 14px)', color: '#1A1A1A', letterSpacing: '0.08em', lineHeight: 1.3, marginTop: '4px', borderBottom: '2px solid #D4623B', paddingBottom: '8px', marginBottom: '10px' }}>
         {experience.team.toUpperCase()}
       </p>
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {experience.bullets.map((b, i) => (
           <li key={i} style={{ display: 'flex', gap: '8px', marginBottom: '8px', alignItems: 'flex-start' }}>
-            <span style={{ color: '#D4623B', fontFamily: "'Anton', sans-serif", fontSize: 'clamp(10px, 1vw, 14px)', lineHeight: 1.4, flexShrink: 0 }}>▸</span>
-            <span style={{ fontFamily: 'sans-serif', fontSize: 'clamp(9px, 0.85vw, 13px)', color: '#1A1A1A', lineHeight: 1.55 }}>{b}</span>
+            <span style={{ color: '#D4623B', fontFamily: "'Comic Neue', cursive", fontStyle: 'italic', fontWeight: 700, fontSize: 'clamp(10px, 1vw, 14px)', lineHeight: 1.4, flexShrink: 0 }}>▸</span>
+            <span style={{ fontFamily: "'Comic Neue', cursive", fontStyle: 'italic', fontSize: 'clamp(9px, 0.85vw, 13px)', color: '#1A1A1A', lineHeight: 1.55 }}>{b}</span>
           </li>
         ))}
       </ul>
       {experience.tech && (
-        <p style={{ fontFamily: "'Anton', sans-serif", fontSize: 'clamp(8px, 0.72vw, 11px)', color: '#666', letterSpacing: '0.08em', lineHeight: 1.6, marginTop: '10px', paddingTop: '8px', borderTop: '2px solid #1A1A1A' }}>
+        <p style={{ fontFamily: "'Comic Neue', cursive", fontStyle: 'italic', fontWeight: 700, fontSize: 'clamp(8px, 0.72vw, 11px)', color: '#666', letterSpacing: '0.08em', lineHeight: 1.6, marginTop: '10px', paddingTop: '8px', borderTop: '2px solid #1A1A1A' }}>
           {experience.tech}
         </p>
       )}
