@@ -134,16 +134,16 @@ const PANELS: PanelDef[] = [
     tailDir: 'bottom',
   },
 
-  // ── 6 ─ VIRTUAL PIANO — bottom small ──────────────────────────────────
+  // ── 6 ─ AGENTIC SITEMAP — bottom small ────────────────────────────────
   {
     img: proj8, zIndex: 1, dir: 'bottom', delay: 2.2,
     pos: { left: '34.6%', top: '64%', width: '12%', height: '32%' },
     clip: 'polygon(0% 0%, 100% 4%, 100% 100%, 0% 100%)',
-    link: 'https://github.com/faizanshaikh0303/Piano',
+    link: 'https://github.com/faizanshaikh0303/Agentic-Sitemap',
     tag: 'github',
-    title: 'Virtual Piano',
-    desc: 'Virtual Piano that tracks your fingers through WebCam.',
-    bubblePos: { left: '40%', top: '48%' },
+    title: 'Agentic Sitemap',
+    desc: 'Generates llms.txt and agent-map.json files and demonstrates a measurable difference in how accurately an AI agent answers shopping queries when given structured product context versus a raw page.',
+    bubblePos: { left: '40%', top: '38%' },
     tailDir: 'bottom',
   },
 
