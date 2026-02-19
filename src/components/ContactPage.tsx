@@ -6,8 +6,8 @@ interface Props {
 const CONTACTS = [
   {
     label: 'EMAIL',
-    value: 'faizan.n.shaikh@gmail.com',
-    href: 'mailto:faizan.n.shaikh@gmail.com',
+    value: 'faizan.n.shaikh404@gmail.com',
+    href: 'mailto:faizan.n.shaikh404@gmail.com',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4623B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2" />
