@@ -122,15 +122,16 @@ const PANELS: PanelDef[] = [
     tailDir: 'bottom',
   },
 
-  // ── 5 ─ INQUIZITIVE — bottom-left small ───────────────────────────────
+  // ── 5 ─ PRISM — bottom-left small ─────────────────────────────────────
   {
     img: proj7, zIndex: 1, dir: 'bottom', delay: 2.1,
     pos: { left: '21%', top: '64%', width: '13%', height: '32%' },
     clip: 'polygon(4% 4%, 100% 0%, 100% 100%, 0% 100%)',
-    link: 'https://github.com/faizanshaikh0303/inquizitive',
-    tag: 'github',
-    title: 'InQuizitive',
-    desc: 'A Full Stack Quiz platform, to take or make your own quizzes.',
+    link: 'https://prism-sound.vercel.app',
+    github: 'https://github.com/faizanshaikh0303/Prism',
+    tag: 'live',
+    title: 'Prism',
+    desc: 'Upload a song → Separate any song into vocal, drum, bass, guitar, piano, other tracks → drag each stem node anywhere around the listener → hear the music in 3D.',
     bubblePos: { left: '18%', top: '50%' },
     tailDir: 'bottom',
   },
