@@ -132,7 +132,7 @@ const PANELS: PanelDef[] = [
     tag: 'live',
     title: 'Prism',
     desc: 'Upload a song → Separate any song into vocal, drum, bass, guitar, piano, other tracks → drag each stem node anywhere around the listener → hear the music in 3D.',
-    bubblePos: { left: '18%', top: '50%' },
+    bubblePos: { left: '18%', top: '40%' },
     tailDir: 'bottom',
   },
 
