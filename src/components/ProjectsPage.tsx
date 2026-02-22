@@ -145,7 +145,7 @@ const PANELS: PanelDef[] = [
     github: 'https://github.com/faizanshaikh0303/Agentic-Sitemap',
     tag: 'live',
     title: 'Agentic Sitemap',
-    desc: 'Generates llms.txt and agent-map.json files and demonstrates a measurable difference in how accurately an AI agent answers shopping queries when given structured product context versus a raw page.',
+    desc: 'Generates llms.txt and agent-map.json files which are easily readable by AI shopping agents, increasing your products visibilty.',
     bubblePos: { left: '40%', top: '38%' },
     tailDir: 'bottom',
   },
